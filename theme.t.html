@@ -1,0 +1,45 @@
+<Document layout="layout.t.html" />
+
+<DefineSection name="head">
+    <link rel="stylesheet" href="/theme/tailwind/css/tailwind_theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <Section name="head"/>
+</DefineSection>
+
+<DefineSection name="body">
+    <div class="m-0">
+        <header class="bg-indigo-900 flex flex-col md:flex-row md:justify-items-stretch" data-nosnippet>
+            <div class="m-4">
+                <a href="#" class="w-100">
+                    <a href="/">
+                        <img src="/static/logo.svg" class="h-12" />
+                    </a>
+            </div>
+            <div class="flex flex-row">
+                <nav class="flex flex-row justify-items-start align-items-stretch gap-4" aria-label="Global">
+                    <Json name="menu" from="menu.json">
+                        <ForEach name="item" in="menu.menuItems">
+                            <OnLink uri="$(item.link)" inactiveClass="border-transparent" activeClass="border-white font-bold">
+                                <div class="border-b-2 md:border-b-4 flex flex-row items-center $(active_activeClass) $(inactive_inactiveClass)">
+                                    <a href="$(_uri)" class="text-white">$(item.label)</a>
+                                </div>
+                            </OnLink>
+                        </ForEach>
+                    </Json>
+                </nav>
+            </div>
+        </header>
+        <main tabindex="-1">
+            <Section name="body" />
+            <section class="bg-gray-900 text-gray-100 p-4 flex flex-row gap-4" data-nosnippet>
+                $(copyrightMessage)
+            </section>
+        </main>
+    </div>
+</DefineSection>
+
+<DefineSection name="script">
+    <Section name="script">
+</DefineSection>

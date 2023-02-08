@@ -1,0 +1,15 @@
+name: tailwind
+template: theme.t.html
+copy:
+  -
+    from: css/
+    glob: tailwind_theme.css
+    to: theme/tailwind/css/
+exec:
+  install:
+    - 
+      cmd: npm install
+  prebuild:
+    - 
+      cmd: npm run build
+  postbuild:
